@@ -1,41 +1,31 @@
-opcode wave, a, iiiiii
+opcode monoWave, a, iiiiii
 
-iFM, iNote, iAttack, iDecay, iSustain, iRelease xin
+iModulator, iNote, iAttack, iDecay, iSustain, iRelease xin
 
 iFrequency init cpsmidinn ( iNote )
 iPitch init iNote % 12
 
-iSplineFrequency init iPitch; cpsmidinn ( 12 + iPitch )
-iSplineFrequencyMax init iPitch + 4;cpsmidinn ( 12 + iPitch )
+aCarrier linseg cpsmidinn ( iNote + 96 ), iAttack, cpsmidinn ( iNote + 48 ), iDecay, iFrequency, iRelease, iFrequency * cent ( -1225 )
+aSpline jspline 1, 0, 4
+aFrequency poscil aCarrier * cent ( 1200 * aSpline ), iFrequency * iModulator * cent ( 10 * aSpline )
 
-if iFM == 1 then
+aAmplitude linseg 0, iAttack, 1, iDecay, iSustain, iRelease, 0
 
-aFrequency poscil iFrequency, iFrequency*2
+aNote poscil aAmplitude, aFrequency
 
-else
+aNote butterlp aNote, iFrequency * cent ( 1200 * k ( aSpline ) )
 
-aFrequency = iFrequency
+xout aNote
 
-endif
+endop
 
-aDetune linseg cent ( 1 ), iAttack, cent ( 5 ), iDecay, 1, iRelease, cent ( -5 )
-aFrequency = aFrequency * aDetune
+opcode wave, aa, iiiiii
 
-aClip jspline .5, iSplineFrequency, iSplineFrequencyMax
-aClip += .5
+iFM, iNote, iAttack, iDecay, iSustain, iRelease xin
 
-aSkew jspline .5, iSplineFrequency, iSplineFrequencyMax
-aSkew += .5
+aLeft monoWave iFM, iNote, iAttack, iDecay, iSustain, iRelease
+aRight monoWave iFM, iNote, iAttack, iDecay, iSustain, iRelease
 
-aNote squinewave aFrequency, aClip, aSkew
-
-aFilter jspline 200, iSplineFrequency, iSplineFrequencyMax
-aNote butterlp aNote, abs ( aFrequency / 4 * cent ( aFilter ) )
-
-aEnvelope adsr iAttack, iDecay, iSustain, iRelease
-
-aAmplitude poscil 1, aFrequency
-
-xout aNote * aEnvelope; * aAmplitude
+xout aLeft, aRight
 
 endop
