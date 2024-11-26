@@ -1,9 +1,6 @@
-#include "kit/index.mac"
 #include "maqam.sco"
 
 #include "rhythms/tempo.sco"
-
-/*
 
 $tempo
 
@@ -11,9 +8,29 @@ $tempo
 
 s 4
 
-m intro
+$tempo
 
-*/
+#include "rhythms/riseLow1.sco"
+
+s 4
+
+$tempo
+
+#include "rhythms/riseLow2.sco"
+
+s 4
+
+$tempo
+
+#include "rhythms/riseHigh1.sco"
+
+s 4
+
+$tempo
+
+#include "rhythms/riseHigh2.sco"
+
+s 4
 
 $tempo
 
@@ -42,5 +59,3 @@ $tempo
 #include "rhythms/riseHigh2.sco"
 
 s 4
-
-n intro

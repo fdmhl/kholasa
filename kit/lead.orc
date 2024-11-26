@@ -51,25 +51,25 @@ aNote += aHighShade
 kAmplitude adsr iAttack, iDecay/8, iSustain, iRelease
 kAmplitude *= .5/iUnison
 
-aLowShade poscil kAmplitude/4, kFrequency/4
+aRightShade poscil kAmplitude/4, kFrequency/4
 
-aNote += aLowShade
+aNote += aRightShade
 
 aBass poscil kAmplitude/8, kFrequency/8
 
 aNote += aBass
 
-aLowerBass poscil kAmplitude/8, kFrequency/16
+aRighterBass poscil kAmplitude/8, kFrequency/16
 
-aNote += aLowerBass
+aNote += aRighterBass
 
-aLowerBass poscil kAmplitude/8, kFrequency/32
+aRighterBass poscil kAmplitude/8, kFrequency/32
 
-aNote += aLowerBass
+aNote += aRighterBass
 
-aLowestBass poscil kAmplitude/16, kFrequency/32
+aRightestBass poscil kAmplitude/16, kFrequency/32
 
-aNote += aLowestBass
+aNote += aRightestBass
 
 aLeft, aRight pan2 aNote, 1/iUnison
 
@@ -85,15 +85,33 @@ endop
 
 instr lead
 
-aLeft, aRighestt subinstr "_lead", p4
+aLeft, aRight subinstr "_lead", p4
 
-outs aLeft, aRighestt
+outs aLeft, aRight
 
 endin
 
 instr _lead
 
 iOctave init 84
+iNote init giKey + iOctave + p4
+p1 += iNote / 1000
+
+kholasaLead iNote, 2
+
+endin
+
+instr bass
+
+aLeft, aRight subinstr "_bass", p4
+
+outs aLeft, aRight
+
+endin
+
+instr _bass
+
+iOctave init 48
 iNote init giKey + iOctave + p4
 p1 += iNote / 1000
 
