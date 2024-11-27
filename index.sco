@@ -8,6 +8,13 @@ $tempo
 
 s 4
 
+#include "rhythms/questioning1.sco"
+#include "rhythms/questioning2.sco"
+#include "rhythms/questioning3.sco"
+
+/*
+
+
 $tempo
 
 #include "rhythms/riseLow1.sco"
@@ -59,3 +66,5 @@ $tempo
 #include "rhythms/riseHigh2.sco"
 
 s 4
+
+*/

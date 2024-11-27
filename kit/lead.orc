@@ -105,7 +105,7 @@ instr bass
 
 aLeft, aRight subinstr "_bass", p4
 
-outs aLeft, aRight
+outs aLeft/2, aRight/2
 
 endin
 
