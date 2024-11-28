@@ -8,6 +8,7 @@ aNote tambourine 1, p3, 128, .5, 0, cpsmidinn ( iNote ), cpsmidinn ( iNote + 9 +
 
 aNote /= 2
 
-outs aNote, aNote
+chnmix aNote, "left"
+chnmix aNote, "right"
 
 endin

@@ -87,7 +87,16 @@ instr lead
 
 aLeft, aRight subinstr "_lead", p4
 
-outs aLeft, aRight
+kSpace jspline .5, 0, 4
+kSpace += .5
+
+aLeftReverb, aRightReverb freeverb aLeft, aRight, kSpace * 3/4, kSpace
+
+chnmix aLeft/3, "left"
+chnmix aRight/3, "right"
+
+chnmix aLeftReverb/8, "left"
+chnmix aRightReverb/8, "right"
 
 endin
 
@@ -98,6 +107,9 @@ iNote init giKey + iOctave + p4
 p1 += iNote / 1000
 
 kholasaLead iNote, 2
+kholasaLead iNote - 12, 2
+kholasaLead iNote - 24, 2
+kholasaLead iNote - 36, 2
 
 endin
 
@@ -105,7 +117,8 @@ instr bass
 
 aLeft, aRight subinstr "_bass", p4
 
-outs aLeft/2, aRight/2
+chnmix aLeft*.75, "left"
+chnmix aRight*.75, "right"
 
 endin
 
@@ -116,5 +129,7 @@ iNote init giKey + iOctave + p4
 p1 += iNote / 1000
 
 kholasaLead iNote, 2
+kholasaLead iNote + 12, 2
+kholasaLead iNote - 12, 2
 
 endin

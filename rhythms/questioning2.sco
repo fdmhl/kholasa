@@ -1,6 +1,6 @@
 $tempo
 
-i "dom" 0 [1/8] $C
+i "dom" 0 [2] $C
 i . 2 .
 
 #include "rhythms/oneTwo.sco"
@@ -10,7 +10,7 @@ s 4
 
 $tempo
 
-i "dom" 0 [1/8] $C
+i "dom" 0 [2] $C
 i . 2 .
 
 #include "rhythms/oneTwo.sco"
@@ -20,7 +20,7 @@ s 4
 
 $tempo
 
-i "dom" 0 [1/8] $C
+i "dom" 0 [2] $C
 i . 2 .
 
 #include "rhythms/oneTwo.sco"
@@ -30,7 +30,7 @@ s 4
 
 $tempo
 
-i "dom" 0 [1/8] $C
+i "dom" 0 [2] $C
 i . 2 .
 
 #include "rhythms/oneTwo.sco"

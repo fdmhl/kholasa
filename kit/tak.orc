@@ -2,7 +2,8 @@ instr tak
 
 aLeft, aRight subinstr "_tak", p4
 
-outs aLeft/2, aRight/2
+chnmix aLeft/1.5, "left"
+chnmix aRight/1.5, "right"
 
 endin
 
@@ -35,9 +36,9 @@ aHighSub poscil aHighSubAmplitude, aHighSubFrequency
 
 outs aHighSub/4, aHighSub/4
 
-aGogobell gogobel 1, cpsmidinn ( iNote ), .5, .5, giStrikeFT, 6.0, 0.3, giVibratoFT
+aGogobell gogobel 1, cpsmidinn ( iNote + 24 ), .5, .5, giStrikeFT, 6.0, 0.3, giVibratoFT
 aGogobellAmplitude linseg 1, p3, 0
-aGogobell *= aGogobellAmplitude/4
+aGogobell *= aGogobellAmplitude/2
 
 outs aGogobell, aGogobell
 
