@@ -2,38 +2,38 @@ $tempo
 
 i "dom" 0 [2] $C
 i . 2 .
+i . 4 .
+i . 6 .
 
 #include "rhythms/oneTwo.sco"
-#include "rhythms/riseLow1.sco"
+b 2
+#include "rhythms/oneTwo.sco"
+b 4
+#include "rhythms/oneTwo.sco"
+b 6
+#include "rhythms/oneTwo.sco"
 
-s 4
+b 0
+#include "rhythms/riseLow.sco"
+
+s 8
 
 $tempo
 
 i "dom" 0 [2] $C
 i . 2 .
+i . 4 .
+i . 6 .
 
 #include "rhythms/oneTwo.sco"
-#include "rhythms/riseLow2.sco"
-
-s 4
-
-$tempo
-
-i "dom" 0 [2] $C
-i . 2 .
-
+b 2
 #include "rhythms/oneTwo.sco"
-#include "rhythms/riseHigh1.sco"
-
-s 4
-
-$tempo
-
-i "dom" 0 [2] $C
-i . 2 .
-
+b 4
 #include "rhythms/oneTwo.sco"
-#include "rhythms/riseHigh2.sco"
+b 6
+#include "rhythms/oneTwo.sco"
 
-s 4
+b 0
+#include "rhythms/riseHigh.sco"
+
+s 8

@@ -2,8 +2,8 @@ instr tak
 
 aLeft, aRight subinstr "_tak", p4
 
-chnmix aLeft/1.5, "left"
-chnmix aRight/1.5, "right"
+chnmix aLeft, "left"
+chnmix aRight, "right"
 
 endin
 
@@ -49,5 +49,17 @@ aSnatch noise aSnatchAmplitude, 0
 aSnatch butterlp aSnatch, aSnatchFrequency
 
 outs aSnatch/2, aSnatch/2
+
+iNote = 108 + p4
+
+aSagat tambourine 1, p3, 128, .5, 0, cpsmidinn ( iNote ), cpsmidinn ( iNote + 9 + p5 ), cpsmidinn ( iNote + 18 )
+
+outs aSagat/8, aSagat/8
+
+iNote = 108 + p4
+
+aSagat tambourine 1, p3, 128, .5, 0, cpsmidinn ( iNote ), cpsmidinn ( iNote + 9 + p5 ), cpsmidinn ( iNote + 18 )
+
+outs aSagat/8, aSagat/8
 
 endin

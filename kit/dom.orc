@@ -15,7 +15,7 @@ p1 += iNote / 1000
 
 iAttack init 1/16
 iDecay init 1/8 
-iSustain init 1/128
+iSustain init 1/32
 iRelease init p3 - iAttack - iDecay
 
 aMainSubAmplitude adsr iAttack, iDecay, iSustain, iRelease
@@ -30,12 +30,21 @@ iHighSubSegment init 16
 
 aHighSubAmplitude adsr iAttack / iHighSubSegment, iDecay / iHighSubSegment, iSustain / iHighSubSegment, iRelease / iHighSubSegment
 
-aHighSubFrequency linseg cpsmidinn ( 48 + iNote ), iAttack / 
-iHighSubSegment, cpsmidinn ( iNote + 36 ), iRelease, cpsmidinn ( iNote + 12 - 2 )
+aHighSubFrequency linseg cpsmidinn ( 48 + iNote ), iAttack / iHighSubSegment, cpsmidinn ( iNote + 36 ), iRelease, cpsmidinn ( iNote + 12 - 2 )
 
 aHighSub poscil aHighSubAmplitude, aHighSubFrequency
 
 outs aHighSub/2, aHighSub/2
+
+iHighSubSegment init 8
+
+aHighSubAmplitude adsr iAttack / iHighSubSegment, iDecay / iHighSubSegment, iSustain / iHighSubSegment, iRelease / iHighSubSegment
+
+aHighSubFrequency linseg cpsmidinn ( 48 + iNote ), iAttack / iHighSubSegment, cpsmidinn ( iNote + 36 ), iRelease, cpsmidinn ( iNote + 24 - 2 )
+
+aHighSub poscil aHighSubAmplitude, aHighSubFrequency
+
+outs aHighSub, aHighSub
 
 aGogobell gogobel 1, cpsmidinn ( iNote + 12 ), .5, .5, giStrikeFT, 6.0, 0.3, giVibratoFT
 
@@ -50,7 +59,7 @@ aSnatch butterlp aSnatch, aSnatchFrequency
 
 outs aSnatch, aSnatch
 
-iNote = 120 + p4
+iNote = 108 + p4
 
 aSagat tambourine 1, p3, 128, .5, 0, cpsmidinn ( iNote ), cpsmidinn ( iNote + 9 + p5 ), cpsmidinn ( iNote + 18 )
 

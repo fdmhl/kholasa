@@ -2,19 +2,14 @@
 
 #include "rhythms/tempo.sco"
 
-/*
-
-$tempo
-
-#include "rhythms/tempoGuide.sco"
-
-s 4
-
-*/
-
 #include "rhythms/questioning1.sco"
 #include "rhythms/questioning2.sco"
 #include "rhythms/questioning3.sco"
+
+#include "rhythms/response1.sco"
+#include "rhythms/response2.sco"
+#include "rhythms/response1.sco"
+#include "rhythms/response2.sco"
 
 /*
 

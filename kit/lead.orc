@@ -92,11 +92,11 @@ kSpace += .5
 
 aLeftReverb, aRightReverb freeverb aLeft, aRight, kSpace * 3/4, kSpace
 
-chnmix aLeft/3, "left"
-chnmix aRight/3, "right"
+chnmix aLeft/2, "left"
+chnmix aRight/2, "right"
 
-chnmix aLeftReverb/8, "left"
-chnmix aRightReverb/8, "right"
+chnmix aLeftReverb/4, "left"
+chnmix aRightReverb/4, "right"
 
 endin
 

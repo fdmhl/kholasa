@@ -1,31 +1,39 @@
 $tempo
 
 #include "rhythms/maqsum.sco"
-#include "rhythms/oneTwo.sco"
-#include "rhythms/riseLow1.sco"
+b 4
+#include "rhythms/maqsum.sco"
 
-s 4
+b 0
+#include "rhythms/oneTwo.sco"
+b 2
+#include "rhythms/oneTwo.sco"
+b 4
+#include "rhythms/oneTwo.sco"
+b 6
+#include "rhythms/oneTwo.sco"
+
+b 0
+#include "rhythms/riseLow.sco"
+
+s 8
 
 $tempo
 
 #include "rhythms/maqsum.sco"
-#include "rhythms/oneTwo.sco"
-#include "rhythms/riseLow2.sco"
-
-s 4
-
-$tempo
-
+b 4
 #include "rhythms/maqsum.sco"
+
+b 0
 #include "rhythms/oneTwo.sco"
-#include "rhythms/riseHigh1.sco"
-
-s 4
-
-$tempo
-
-#include "rhythms/maqsum.sco"
+b 2
 #include "rhythms/oneTwo.sco"
-#include "rhythms/riseHigh2.sco"
+b 4
+#include "rhythms/oneTwo.sco"
+b 6
+#include "rhythms/oneTwo.sco"
 
-s 4
+b 0
+#include "rhythms/riseHigh.sco"
+
+s 8

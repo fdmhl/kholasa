@@ -1,29 +1,16 @@
 $tempo
 
-#include "rhythms/riseLow1.sco"
+i "dom" 4 [2] $C
 
-s 4
+#include "rhythms/riseLow.sco"
 
-$tempo
-
-i "dom" 0 [2] $C
-
-#include "rhythms/riseLow2.sco"
-
-s 4
+s 8
 
 $tempo
 
 i "dom" 0 [2] $C
+i . 4 . $C
 
-#include "rhythms/riseHigh1.sco"
+#include "rhythms/riseHigh.sco"
 
-s 4
-
-$tempo
-
-i "dom" 0 [2] $C
-
-#include "rhythms/riseHigh2.sco"
-
-s 4
+s 8
