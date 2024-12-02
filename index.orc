@@ -12,6 +12,7 @@ giVibratoFT ftgen 0, 0, 128, 10, 1
 
 #include "kit/lead.orc"
 #include "kit/response.orc"
+#include "kit/drone.orc"
 
 #include "kit/dom.orc"
 #include "kit/tak.orc"

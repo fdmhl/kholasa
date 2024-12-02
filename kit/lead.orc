@@ -117,14 +117,14 @@ instr bass
 
 aLeft, aRight subinstr "_bass", p4
 
-chnmix aLeft*.75, "left"
-chnmix aRight*.75, "right"
+chnmix aLeft, "left"
+chnmix aRight, "right"
 
 endin
 
 instr _bass
 
-iOctave init 48
+iOctave init 24
 iNote init giKey + iOctave + p4
 p1 += iNote / 1000
 
