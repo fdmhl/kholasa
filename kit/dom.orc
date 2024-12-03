@@ -2,8 +2,13 @@ instr dom
 
 aLeft, aRight subinstr "_dom", p4
 
-chnmix aLeft, "left"
-chnmix aRight, "right"
+aLeft clip aLeft, 1, 1
+aRight clip aRight, 1, 1
+
+iDistance init 1.5
+
+chnmix aLeft / iDistance, "left"
+chnmix aRight / iDistance, "right"
 
 endin
 
@@ -28,7 +33,7 @@ outs aMainSub, aMainSub
 
 iHighSubSegment init 16
 
-aHighSubAmplitude adsr iAttack / iHighSubSegment, iDecay / iHighSubSegment, iSustain / iHighSubSegment, iRelease / iHighSubSegment
+aHighSubAmplitude adsr iAttack / iHighSubSegment, iDecay / iHighSubSegment, 0, iRelease / iHighSubSegment
 
 aHighSubFrequency linseg cpsmidinn ( 48 + iNote ), iAttack / iHighSubSegment, cpsmidinn ( iNote + 36 ), iRelease, cpsmidinn ( iNote + 12 - 2 )
 
@@ -38,7 +43,7 @@ outs aHighSub/2, aHighSub/2
 
 iHighSubSegment init 8
 
-aHighSubAmplitude adsr iAttack / iHighSubSegment, iDecay / iHighSubSegment, iSustain / iHighSubSegment, iRelease / iHighSubSegment
+aHighSubAmplitude adsr iAttack / iHighSubSegment, iDecay / iHighSubSegment, 0, iRelease / iHighSubSegment
 
 aHighSubFrequency linseg cpsmidinn ( 48 + iNote ), iAttack / iHighSubSegment, cpsmidinn ( iNote + 36 ), iRelease, cpsmidinn ( iNote + 24 - 2 )
 

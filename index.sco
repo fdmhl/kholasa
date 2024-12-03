@@ -2,36 +2,31 @@
 
 #include "rhythms/tempo.sco"
 
-/*
-
-$tempo
-
-i "drone" 0 -8 $G
-
-s 8
-
-*/
-
 #include "rhythms/questioning1.sco"
 #include "rhythms/questioning2.sco"
 #include "rhythms/questioning3.sco"
 
 #include "rhythms/response1.sco"
 #include "rhythms/response2.sco"
+
 #include "rhythms/response1.sco"
 #include "rhythms/response2.sco"
 
-/*
-
 $tempo
 
-#include "rhythms/maqsum16.sco"
+i "lead" 0 4 $lG
+i "response" 0 4 $lG
+
+#include "rhythms/tempoGuide.sco"
 
 s 4
 
 $tempo
 
-#include "rhythms/maqsum16.sco"
+#include "rhythms/maqsumBass.sco"
+#include "rhythms/maqsum.sco"
+b 4
+#include "rhythms/maqsumBass.sco"
+#include "rhythms/maqsum.sco"
 
-s 4
-*/
+s 8

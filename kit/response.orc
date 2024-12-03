@@ -5,10 +5,12 @@ iNote, iDistance xin
 aClip chnget "responseClip"
 aSkew chnget "responseSkew"
 
-iAttack init p3/8
+iDuration init abs ( p3 )
+
+iAttack init iDuration/8
 iDecay init iAttack/2
 iSustain init 1/16
-iRelease init p3 - iAttack - iDecay
+iRelease init iDuration - iAttack - iDecay
 
 aAmplitude adsr iAttack, iDecay, iSustain, iRelease
 aAmplitude *= 1 / ( iDistance + 1 )
@@ -40,26 +42,15 @@ instr response
 
 aLeft, aRight subinstr "_response", p4
 
-kSpace jspline .5, 0, 4
-kSpace += .5
-
-p3 += 1
-
-aLeftReverb, aRightReverb freeverb aLeft, aRight, kSpace, kSpace
-
-chnmix aLeft, "left"
-chnmix aRight, "right"
-
-chnmix aLeftReverb/8, "left"
-chnmix aRightReverb/8, "right"
+chnmix aLeft, "responseLeft"
+chnmix aRight, "responseRight"
 
 endin
 
-giOctave init 72
-
 instr _response
 
-iNote init giOctave + giKey + p4
+iOctave init 72
+iNote init iOctave + giKey + p4
 
 kholasaResponse iNote + 36, 8
 kholasaResponse iNote + 24, 4
@@ -85,6 +76,30 @@ aSkew jspline .5, 0, 4
 aSkew += 1
 
 chnmix aSkew, "responseSkew"
+
+aLeft chnget "responseLeft"
+aRight chnget "responseRight"
+
+kSpace jspline .5, 0, 4
+kSpace += .5
+
+aLeftReverb, aRightReverb freeverb aLeft, aRight, kSpace, kSpace
+
+iReverb init 8
+
+aLeft += aLeftReverb / iReverb
+aRight += aRightReverb / iReverb
+
+aLeft clip aLeft, 1, 1
+aRight clip aRight, 1, 1
+
+iDistance init 2
+
+chnmix aLeft / iDistance, "left"
+chnmix aRight / iDistance, "right"
+
+chnclear "responseLeft"
+chnclear "responseRight"
 
 endin
 

@@ -87,18 +87,40 @@ instr lead
 
 aLeft, aRight subinstr "_lead", p4
 
+chnmix aLeft, "leadLeft"
+chnmix aRight, "leadRight"
+
+endin
+
+instr _leadController
+
+aLeft chnget "leadLeft"
+aRight chnget "leadRight"
+
 kSpace jspline .5, 0, 4
 kSpace += .5
 
-aLeftReverb, aRightReverb freeverb aLeft, aRight, kSpace * 3/4, kSpace
+aLeftReverb, aRightReverb freeverb aLeft, aRight, kSpace, kSpace
 
-chnmix aLeft/2, "left"
-chnmix aRight/2, "right"
+iReverb init 4
 
-chnmix aLeftReverb/4, "left"
-chnmix aRightReverb/4, "right"
+aLeft += aLeftReverb / iReverb
+aRight += aRightReverb / iReverb
+
+aLeft clip aLeft, 1, 1
+aRight clip aRight, 1, 1
+
+iDistance init 4
+
+chnmix aLeft / iDistance, "left"
+chnmix aRight / iDistance, "right"
+
+chnclear "leadLeft"
+chnclear "leadRight"
 
 endin
+
+schedule "_leadController", 0, -1
 
 instr _lead
 
@@ -117,8 +139,13 @@ instr bass
 
 aLeft, aRight subinstr "_bass", p4
 
-chnmix aLeft, "left"
-chnmix aRight, "right"
+aLeft clip aLeft, 1, 1
+aRight clip aRight, 1, 1
+
+iDistance init 2
+
+chnmix aLeft / iDistance, "left"
+chnmix aRight / iDistance, "right"
 
 endin
 
