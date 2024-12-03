@@ -14,12 +14,15 @@
 
 $tempo
 
-i "lead" 0 4 $lG
-i "response" 0 4 $lG
+i "lead" 0 8 $lG
 
+i "response" 0 8 $lG
+i "response" 0 [1/2] $C
+
+b 4
 #include "rhythms/tempoGuide.sco"
 
-s 4
+s 8
 
 $tempo
 
