@@ -84,7 +84,7 @@ aRight += aRightReverb / iReverb
 aLeft clip aLeft, 1, 1
 aRight clip aRight, 1, 1
 
-iDistance init 1
+iDistance init 2
 
 chnmix aLeft / iDistance, "left"
 chnmix aRight / iDistance, "right"
