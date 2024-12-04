@@ -12,6 +12,7 @@
 #include "rhythms/response1.sco"
 #include "rhythms/response2.sco"
 
+/*
 $tempo
 
 i "lead" 0 8 $lG
@@ -33,3 +34,4 @@ b 4
 #include "rhythms/maqsum.sco"
 
 s 8
+*/

@@ -11,11 +11,13 @@ b 4
 
 v [1/2]
 b 0
-i "response" 0 1 $C
-i . 7 1 $lF
+i "response" 7 [1/2] $lF
+i . + .
 i . + . $lG
+i . + .
 
-i . 15 . $lF
+i . 15 [1/2] $lF
+i . + .
 
 #include "rhythms/riseLow.sco"
 
@@ -34,11 +36,15 @@ b 4
 
 v [1/2]
 b 0
-i "response" 7 1 $lB
+i "response" 7 [1/2] $lB
+i . + .
 i . + . $C
+i . + .
 
-i . 0 . $G
+i "response" 0 [1/2] $G
+i . + .
 i . 15 . $lB
+i . + .
 
 #include "rhythms/riseHigh.sco"
 

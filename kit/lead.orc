@@ -134,29 +134,3 @@ kholasaLead iNote - 24, 2
 kholasaLead iNote - 36, 2
 
 endin
-
-instr bass
-
-aLeft, aRight subinstr "_bass", p4
-
-aLeft clip aLeft, 1, 1
-aRight clip aRight, 1, 1
-
-iDistance init 2
-
-chnmix aLeft / iDistance, "left"
-chnmix aRight / iDistance, "right"
-
-endin
-
-instr _bass
-
-iOctave init 24
-iNote init giKey + iOctave + p4
-p1 += iNote / 1000
-
-kholasaLead iNote, 2
-kholasaLead iNote + 12, 2
-kholasaLead iNote - 12, 2
-
-endin

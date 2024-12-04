@@ -26,4 +26,5 @@ i . + . $lB
 
 i "lead" 0 2 $lG
 
-i "response" 0 1 $C
+i "response" 0 [1/2] $C
+i . + .

@@ -9,6 +9,7 @@ giStrikeFT ftgen 0, 0, 256, 1, "prerequisites/marmstk1.wav", 0, 0, 0
 giVibratoFT ftgen 0, 0, 128, 10, 1
 
 #include "kit/sagat.orc"
+#include "kit/bass.orc"
 
 #include "kit/lead.orc"
 #include "kit/response.orc"
