@@ -5,35 +5,50 @@ iNote, iDistance, iUnison, iPartial xin
 iMargin init 1/12
 iNote += ( iUnison - 2 ) * iMargin
 
-iAttack init 1/2048
-iDecay init 1/16
-iSustain init 1/16
+iAttack init 1/4096
+iDecay init iAttack*128
+iSustain init 1/32
 iRelease init p3 - iAttack - iDecay
-
-kAmplitude adsr iAttack, iDecay, iSustain, iRelease
-kAmplitude *= .5/iUnison * 1 / iDistance
-
-kFrequency linseg cpsmidinn ( iNote + 72 ), iAttack/8, cpsmidinn ( iNote + 36 ), iAttack, cpsmidinn ( iNote ), iRelease, cpsmidinn ( iNote - 1/4 )
-
-aBody vco2 kAmplitude, kFrequency
-aBody butterlp aBody, kFrequency
-
-outs aBody, aBody
-
-aModulator poscil 1, kFrequency
-aDing poscil kAmplitude, kFrequency*2 * aModulator
-
-outs aDing, aDing
 
 aClip chnget "bassClip"
 aSkew chnget "bassSkew"
 
-aShade squinewave a ( kFrequency * 8 ), aClip, aSkew
-aShade *= kAmplitude/2
+aAmplitude adsr iAttack, iDecay, iSustain, iRelease
+aAmplitude *= .5/iUnison * 1 / iDistance
 
-outs aShade, aShade
+iShift init 1/1
 
-aBass poscil kAmplitude/8, kFrequency/8
+aFrequency linseg cpsmidinn ( iNote + 120 ), iAttack / iShift, cpsmidinn ( iNote + 36 ), iAttack / iShift, cpsmidinn ( iNote ), iRelease, cpsmidinn ( iNote - 1/4 )
+
+aBody squinewave aFrequency, aClip, aSkew
+aBody *= aAmplitude
+aBody butterlp aBody, aFrequency/3
+
+outs aBody, aBody
+
+aDing squinewave aFrequency*2, aClip, aSkew
+aDing *= aAmplitude/2
+
+outs aDing, aDing
+
+aDing squinewave aFrequency * 8, aClip, aSkew
+aDing *= aAmplitude/2
+
+outs aDing, aDing
+
+aDing squinewave aFrequency * 16, aClip, aSkew
+aDing *= aAmplitude/4
+
+outs aDing, aDing
+
+;aBass squinewave aFrequency/2, aClip, aSkew
+;aBass *= aAmplitude/2
+
+aBass poscil aAmplitude/2, aFrequency/2
+
+outs aBass, aBass
+
+aBass poscil aAmplitude/2, aFrequency/4
 
 outs aBass, aBass
 
@@ -71,20 +86,10 @@ chnmix aSkew, "bassSkew"
 aLeft chnget "bassLeft"
 aRight chnget "bassRight"
 
-kSpace jspline .5, 0, 4
-kSpace += .5
-
-aLeftReverb, aRightReverb freeverb aLeft, aRight, kSpace/64, kSpace
-
-iReverb init 64
-
-aLeft += aLeftReverb / iReverb
-aRight += aRightReverb / iReverb
-
 aLeft clip aLeft, 1, 1
 aRight clip aRight, 1, 1
 
-iDistance init 2
+iDistance init 4
 
 chnmix aLeft / iDistance, "left"
 chnmix aRight / iDistance, "right"
@@ -102,6 +107,7 @@ iOctave init 24
 iNote init giKey + iOctave + p4
 p1 += iNote / 1000
 
+kholasaBass iNote + 12, 1, 2
 kholasaBass iNote, 1, 2
 kholasaBass iNote - 12, 2, 2
 kholasaBass iNote - 24, 4, 2
