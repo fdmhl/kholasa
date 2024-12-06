@@ -103,7 +103,7 @@ schedule "_bassController", 0, -1
 
 instr _bass
 
-iOctave init 24
+iOctave init 36
 iNote init giKey + iOctave + p4
 p1 += iNote / 1000
 
