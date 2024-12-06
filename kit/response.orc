@@ -82,10 +82,11 @@ aRight chnget "responseRight"
 
 kSpace jspline .5, 0, 4
 kSpace += .5
+kSpace = .75 + kSpace*.25
 
 aLeftReverb, aRightReverb freeverb aLeft, aRight, kSpace, kSpace
 
-iReverb init 8
+iReverb init 4
 
 aLeft += aLeftReverb / iReverb
 aRight += aRightReverb / iReverb

@@ -99,6 +99,7 @@ aRight chnget "leadRight"
 
 kSpace jspline .5, 0, 4
 kSpace += .5
+kSpace = .75 + kSpace*.25
 
 aLeftReverb, aRightReverb freeverb aLeft, aRight, kSpace, kSpace
 

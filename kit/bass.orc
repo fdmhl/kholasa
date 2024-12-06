@@ -89,7 +89,7 @@ aRight chnget "bassRight"
 aLeft clip aLeft, 1, 1
 aRight clip aRight, 1, 1
 
-iDistance init 4
+iDistance init 3
 
 chnmix aLeft / iDistance, "left"
 chnmix aRight / iDistance, "right"
@@ -103,7 +103,7 @@ schedule "_bassController", 0, -1
 
 instr _bass
 
-iOctave init 36
+iOctave init 24
 iNote init giKey + iOctave + p4
 p1 += iNote / 1000
 
