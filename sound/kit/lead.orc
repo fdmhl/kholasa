@@ -92,7 +92,7 @@ chnmix aRight, "leadRight"
 
 endin
 
-instr _leadController
+instr leadController
 
 aLeft chnget "leadLeft"
 aRight chnget "leadRight"
@@ -120,8 +120,6 @@ chnclear "leadLeft"
 chnclear "leadRight"
 
 endin
-
-schedule "_leadController", 0, -1
 
 instr _lead
 

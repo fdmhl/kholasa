@@ -72,7 +72,7 @@ chnclear "bassSkew"
 
 endin
 
-instr _bassController
+instr bassController
 
 aClip jspline .5, 0, 4
 aClip += .5
@@ -98,8 +98,6 @@ chnclear "bassLeft"
 chnclear "bassRight"
 
 endin
-
-schedule "_bassController", 0, -1
 
 instr _bass
 

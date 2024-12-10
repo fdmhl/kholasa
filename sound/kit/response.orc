@@ -65,7 +65,7 @@ chnclear "responseFilter"
 
 endin
 
-instr _responseController
+instr responseController
 
 aClip jspline .5, 0, 4
 aClip += .5
@@ -103,5 +103,3 @@ chnclear "responseLeft"
 chnclear "responseRight"
 
 endin
-
-schedule "_responseController", 0, -1

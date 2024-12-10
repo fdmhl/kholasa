@@ -17,7 +17,7 @@ giVibratoFT ftgen 0, 0, 128, 10, 1
 
 #include "kit/dom.orc"
 #include "kit/tak.orc"
-#include "kit/sak.orc"
+#include "kit/clap.orc"
 
 instr out
 
@@ -34,4 +34,19 @@ chnclear "right"
 
 endin
 
-schedule "out", 0, -1
+#define setup #schedule "out", 0, -1
+schedule "bassController", 0, -1
+schedule "responseController", 0, -1
+schedule "leadController", 0, -1#
+
+instr loopback
+
+p3 = -1
+
+rewindscore
+
+$setup
+
+endin
+
+$setup

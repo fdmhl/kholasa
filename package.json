@@ -1,0 +1,23 @@
+{
+  "name": "kholasa",
+  "version": "1.0.0",
+  "description": "Faddy's Kholasa Sound Synthesis",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fdmhl/kholasa.git"
+  },
+  "keywords": [
+    "sound",
+    "synthesis",
+    "music",
+    "csound",
+    "arabic",
+    "maqam"
+  ],
+  "author": "Faddy Michel",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/fdmhl/kholasa/issues"
+  },
+  "homepage": "https://github.com/fdmhl/kholasa#readme"
+}
